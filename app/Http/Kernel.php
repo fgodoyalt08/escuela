@@ -77,4 +77,9 @@ class Kernel extends HttpKernel
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
     ];
+
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('hook:check')->sundays()->at('03:00');
+    }
 }
